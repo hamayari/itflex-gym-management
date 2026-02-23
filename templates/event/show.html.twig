@@ -1,0 +1,67 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Détails de l'événement{% endblock %}
+{% block page_title %}Gestion des Événements{% endblock %}
+{% block breadcrumb %}
+    <a href="{{ path('app_event_index') }}" class="breadcrumb-item">Événements</a>
+    <li class="breadcrumb-item active">Détails</li>
+{% endblock %}
+
+{% block body %}
+    <h1>Events</h1>
+
+    <table class="table">
+        <tbody>
+          
+            <tr>
+                <th>Titre</th>
+                <td>{{ event.titreevent }}</td>
+            </tr>
+            <tr>
+                <th>Coach</th>
+                <td>{{ event.nomcoach }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ event.idtype.type }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ event.adresseevent }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ event.prixevent }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ event.dateevent ? event.dateevent|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    {% if event.imgevent %}
+                        <img src="{{ asset('uploads/images/' ~ event.imgevent) }}" alt="{{ event.titreevent }}" style="max-width: 200px; max-height: 200px;">
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Nombre places reservees</th>
+                <td>{{ event.nombreplacesreservees }}</td>
+            </tr>
+            <tr>
+                <th>Nombre places total</th>
+                <td>{{ event.nombreplacestotal }}</td>
+            </tr>
+          
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_event_index') }}" class="btn btn-primary">Back to List</a>
+
+    <a href="{{ path('app_event_edit', {'idevent': event.idevent}) }}" class="btn btn-warning">Edit</a>
+
+    {{ include('event/_delete_form.html.twig') }}
+{% endblock %}

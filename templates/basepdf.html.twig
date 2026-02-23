@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    {#  <link type="text/css" href="{{ asset('C:\Users\ASUS\CmdRamch\public\csspdf.css')}}" rel="stylesheet" />#}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<table width="750px" class="text-center">
+    <tr>
+        <td><h2 style="color: #1b2658">GYM.tn à votre service en un clin d'oeil !</h2> </td>
+        <td><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('/images/offer/art/logo_SalleDeSport.png') }}" alt="" width="100px" height="100px"></td>
+    </tr>
+</table>
+<h2>Offer : </h2>
+
+    {% block body %}
+
+    {% endblock %}
+<footer>
+    <table width="530">
+        <td>
+            <h5>GYM</br>
+                Tunis, Ariana</br>
+                Hay ghazella, 8952</br>
+                Phone: +216 55 245 864</br>
+                Email: GYM@gmail.com</h5>
+        </td>
+    </table>
+</footer>
+</body>
+</html>

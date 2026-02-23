@@ -1,0 +1,33 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Modifier la publication{% endblock %}
+{% block page_title %}Gestion de la Communauté{% endblock %}
+{% block breadcrumb %}
+    <a href="{{ path('app_post_index') }}" class="breadcrumb-item">Publications</a>
+    <li class="breadcrumb-item active">Modifier</li>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-10 offset-lg-1">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-success text-white">
+                <h6 class="m-0 font-weight-bold">
+                    <i class="fas fa-edit me-2"></i>Modifier la publication
+                </h6>
+            </div>
+            <div class="card-body">
+                {{ include('post/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+            </div>
+            <div class="card-footer bg-white">
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app_post_index') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+                    </a>
+                    {{ include('post/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

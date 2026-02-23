@@ -1,0 +1,12 @@
+framework:
+    cache:
+        # Unique name of your app: used to compute stable namespaces for cache keys.
+        #prefix_seed: your_vendor_name/app_name
+
+        # The "app" cache stores to the filesystem by default.
+        # The data in this cache should persist between deploys.
+        # Other options include: "cache.adapter.apcu", "cache.adapter.redis", etc.
+        app: cache.adapter.filesystem
+
+        # The "system" cache is for application internals and should not be persistent.
+        system: cache.adapter.system

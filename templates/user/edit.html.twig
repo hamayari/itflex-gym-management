@@ -1,0 +1,82 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Modifier utilisateur{% endblock %}
+{% block page_title %}Gestion des Utilisateurs{% endblock %}
+{% block breadcrumb %}
+    <a href="{{ path('app_user_index') }}" class="breadcrumb-item">Utilisateurs</a>
+    <li class="breadcrumb-item active">Modifier</li>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-10 offset-lg-1">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-success text-white">
+                <h6 class="m-0 font-weight-bold">
+                    <i class="fas fa-user-edit me-2"></i>Modifier l'utilisateur
+                </h6>
+            </div>
+            <div class="card-body">
+                {% form_theme form 'backend/form_theme.html.twig' %}
+                
+                {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'needs-validation'}}) }}
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.nom) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.prenom) }}
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.email) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.mdp) }}
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        {{ form_row(form.age) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_row(form.sex) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_row(form.numtel) }}
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.role) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.img) }}
+                    </div>
+                </div>
+                
+                <div class="mt-4 d-flex justify-content-between">
+                    <div>
+                        <a href="{{ path('app_user_index') }}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+                        </a>
+                    </div>
+                    <div class="d-flex gap-2">
+                        {{ include('user/_delete_form.html.twig') }}
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save me-2"></i>Mettre à jour
+                        </button>
+                    </div>
+                </div>
+                
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

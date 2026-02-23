@@ -1,0 +1,111 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Événements - Gestion{% endblock %}
+{% block page_title %}Gestion des Événements{% endblock %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Événements</li>
+{% endblock %}
+
+{% block body %}
+  
+     <form action="{{ path('app_event_index') }}" method="get">
+    <div class="input-group">
+        <input type="text" class="form-control" name="q" placeholder="Search...">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+<h1>List Of Events</h1>
+
+<style>
+    .meeting-item .details {
+        display: none;
+        position: absolute;
+        background-color: white;
+        padding: 10px;
+        border: 1px solid #ccc;
+        z-index: 1;
+        width: 200px; /* Adjust the width as needed */
+    }
+
+    .meeting-item:hover .details {
+        display: block;
+    }
+</style>
+
+<div class="row">
+    {% for event in page %}
+        <div class="col-lg-4 templatemo-item-col all soon">
+            <div class="meeting-item">
+                <div class="thumb">
+                    {% if event.imgevent %}
+                        <img src="{{ asset('uploads/images/' ~ event.imgevent) }}" alt="{{ event.titreevent }}" style="max-width: 250px; max-height: 250px;">
+                        <div class="details">
+                            <p>Coach: {{ event.nomcoach }}</p>
+                            <p>Type: {{ event.idtype.type}}</p>
+                            <p>Address: {{ event.adresseevent }}</p>
+                            <p>Price: {{ event.prixevent }}</p>
+                            <p>Date: {{ event.dateevent ? event.dateevent|date('Y-m-d') : '' }}</p>
+                            <p>Places Reserved: {{ event.nombreplacesreservees }}</p>
+                            <p>Total Places: {{ event.nombreplacestotal }}</p>
+                        </div>
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </div>
+                <div class="down-content">
+                    <div class="flex-container">
+                        <div class="document-name">
+                            <span style="font-weight: bold; font-size: 1.2em; color: #ff6347;">{{ event.titreevent }}</span>
+                        </div>
+                        <div class="show-button">
+                            <a href="{{ path('app_event_show', {'idevent': event.idevent}) }}" class="btn btn-primary">Show</a>
+                        </div>
+                        <a href="{{ path('app_event_edit', {'idevent': event.idevent}) }}" class="btn btn-warning">Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="col-lg-12">
+            <p>No records found</p>
+        </div>
+    {% endfor %}
+</div>
+
+<a href="{{ path('app_event_new') }}" class="btn btn-success">Create New</a>
+    {{ knp_pagination_render(page) }}
+    
+    {% if app.request.get('flashDisplayed') is not defined %}
+        {% if app.flashes('notice') is not empty %}
+            <div class="alert alert-success">
+                {{ app.flashes('notice')[0] ?? '' }}
+            </div>
+        {% endif %}
+        {{ app.request.attributes.set('flashDisplayed', true) }}
+    {% endif %}
+<script>
+    // Optional: If you have jQuery included in your project
+    // $('.thumb').hover(function() {
+    //     $(this).find('.details').toggle();
+    // });
+
+    // Pure JavaScript
+    var thumbs = document.querySelectorAll('.thumb');
+    thumbs.forEach(function(thumb) {
+        thumb.addEventListener('mouseover', function() {
+            this.querySelector('.details').style.display = 'block';
+        });
+
+        thumb.addEventListener('mouseout', function() {
+            this.querySelector('.details').style.display = 'none';
+        });
+    });
+</script>
+
+{% endblock %}
+

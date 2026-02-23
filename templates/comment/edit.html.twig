@@ -1,0 +1,27 @@
+{% extends "base_front_asma.html.twig" %}
+
+{% block title %}Modifier le commentaire - FitPro Manager{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-warning text-white">
+                        <h4 class="mb-0"><i class="fas fa-edit me-2"></i>Modifier le commentaire</h4>
+                    </div>
+                    <div class="card-body">
+                        {{ include('comment/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+                    </div>
+                </div>
+
+                <div class="mt-3 d-flex justify-content-between">
+                    <a href="{{ path('app_comment_index') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+                    </a>
+                    {{ include('comment/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{# Reusable Form Template #}
+{% form_theme form 'backend/form_theme.html.twig' %}
+
+{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'needs-validation'}}) }}
+
+<div class="row">
+    {% for field in form %}
+        {% if field.vars.name != '_token' %}
+            <div class="col-md-{{ field.vars.block_prefixes[1] == 'textarea' ? '12' : '6' }}">
+                {{ form_row(field) }}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<div class="mt-4 d-flex justify-content-end gap-2">
+    <a href="{{ back_url|default('#') }}" class="btn btn-secondary">
+        <i class="fas fa-times me-2"></i>Annuler
+    </a>
+    <button type="submit" class="btn btn-primary">
+        <i class="fas fa-save me-2"></i>{{ button_label|default('Enregistrer') }}
+    </button>
+</div>
+
+{{ form_end(form) }}

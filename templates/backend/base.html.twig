@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+	{% include "/backend/header.html.twig" %}
+	<body class="sb-nav-fixed">
+		{% include "/backend/body.html.twig" %}
+
+		<div id="layoutSidenav">
+			<div id="layoutSidenav_nav">
+				{% include '/backend/nav.html.twig' %}
+			</div>
+
+			<div id="layoutSidenav_content">
+				<main>
+					<div class="container-fluid px-4">
+						<h1 class="mt-4">{% block page_title %}Tableau de bord{% endblock %}</h1>
+						<ol class="breadcrumb mb-4">
+							<li class="breadcrumb-item">{% block breadcrumb %}Accueil{% endblock %}</li>
+						</ol>
+						
+						{% block viewDetails %}{% endblock %}
+						{% block usertable %}{% endblock %}
+						{% block body %}{% endblock %}
+					</div>
+				</main>
+
+				<footer class="py-4 bg-light mt-auto">
+					<div class="container-fluid px-4">
+						<div class="d-flex align-items-center justify-content-between small">
+							<div class="text-muted">Copyright &copy; FitPro Manager {{ "now"|date("Y") }}</div>
+							<div>
+								<a href="#">Politique de confidentialité</a>
+								&middot;
+								<a href="#">Conditions d'utilisation</a>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		
+		{% include "/backend/footer.html.twig" %}
+	</body>
+</html>

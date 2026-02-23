@@ -1,0 +1,48 @@
+{% extends 'backend/base.html.twig' %}
+
+
+ {% block title %} Post{% endblock %}
+
+{% block body %}
+    <h1>Post</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idpost</th>
+                <td>{{ post.idPost }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ post.description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    {% if post.image %}
+                        <img src="{{ asset('uploads/images/' ~ post.image) }}" alt="{{ post.description }}" style="max-width: 200px; max-height: 200px;">
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_post_index') }}">back to list</a>
+
+    <a href="{{ path('app_post_edit', {'idPost': post.idPost}) }}">edit</a>
+
+    {{ include('post/_delete_form.html.twig') }}
+{% endblock %}
+{% block content %}
+  
+    
+
+    {% for post in posts %}
+        {# Afficher les détails du post comme vous le souhaitez #}
+        {{ post.description }}
+        <br>
+    {% endfor %}
+    
+{% endblock %}

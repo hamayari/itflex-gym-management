@@ -1,0 +1,50 @@
+{% extends 'backend/base.html.twig' %}
+
+
+{% block title %}Activites{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Activites</h1>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Titre</th>
+                <td>{{ activite.titre }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ activite.idcategorie }}</td>
+            </tr>
+            <tr>
+                <th>DateDeb</th>
+                <td>{{ activite.dateDeb ? activite.dateDeb|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFin</th>
+                <td>{{ activite.dateFin ? activite.dateFin|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Coach</th>
+                <td>{{ activite.iduser }}</td>
+            </tr>
+            <tr>
+                <th>Salle</th>
+                <td>{{ activite.salle }}</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_activites_index') }}" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> Back to List
+        </a>
+
+        <a href="{{ path('app_activites_edit', {'code': activite.code}) }}" class="btn btn-primary">
+            <i class="fas fa-edit"></i> Edit
+        </a>
+
+        {{ include('activites/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

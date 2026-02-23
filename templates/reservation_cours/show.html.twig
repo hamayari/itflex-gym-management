@@ -1,0 +1,68 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Détails de la réservation - FitPro Manager{% endblock %}
+
+{% block page_title %}
+    <h1 class="mt-4"><i class="fas fa-calendar-check me-2"></i>Détails de la réservation</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ path('app_user_index') }}">Tableau de bord</a></li>
+        <li class="breadcrumb-item"><a href="{{ path('app_reservation_cours_index') }}">Réservations</a></li>
+        <li class="breadcrumb-item active">Détails</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <i class="fas fa-info-circle me-2"></i>Informations de la réservation
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th class="text-muted" style="width: 30%;"><i class="fas fa-hashtag me-2"></i>ID</th>
+                                <td><span class="badge bg-secondary">{{ reservation_cour.id }}</span></td>
+                            </tr>
+                            <tr>
+                                <th class="text-muted"><i class="fas fa-calendar me-2"></i>Date de réservation</th>
+                                <td>
+                                    {% if reservation_cour.dateRes %}
+                                        <i class="fas fa-clock me-1 text-muted"></i>
+                                        {{ reservation_cour.dateRes|date('d/m/Y H:i') }}
+                                    {% else %}
+                                        <span class="text-muted">Non définie</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-muted"><i class="fas fa-user me-2"></i>Utilisateur</th>
+                                <td>
+                                    {% if reservation_cour.idUser %}
+                                        <i class="fas fa-user-circle me-1 text-primary"></i>
+                                        <strong>{{ reservation_cour.idUser.nom }} {{ reservation_cour.idUser.prenom }}</strong>
+                                    {% else %}
+                                        <span class="text-muted">Non assigné</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="mt-3 d-flex justify-content-between">
+                <a href="{{ path('app_reservation_cours_index') }}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+                </a>
+                <div>
+                    <a href="{{ path('app_reservation_cours_edit', {'id': reservation_cour.id}) }}" class="btn btn-warning">
+                        <i class="fas fa-edit me-2"></i>Modifier
+                    </a>
+                    {{ include('reservation_cours/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

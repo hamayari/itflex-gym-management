@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "frontend/header.html.twig" %}
+
+<body>
+{% include "frontend/body.html.twig" %}
+
+{% block register %}
+    <!-- ***** Main Banner Area Start ***** -->
+   <div class="main-banner" id="top">
+			<video autoplay muted loop id="bg-video">{ % block video %}
+				<source src="{{asset('FrontOffice/images/gym-video.mp4')}}" type="video/mp4"/>
+
+			</video>
+
+			<div class="video-overlay header-text">
+				<div class="caption" style="z-index: 100%;">
+             
+					<div class="container">
+						<div class="row justify-content-center">
+							<div class="col-lg-7">
+								<div class="card shadow-lg border-0 rounded-lg mt-5">
+									<div class="card-header">
+                                    {% block headerCard%}
+										
+                                    {% endblock %}
+									</div>
+									<div class="card-body">
+                                       {% block container %}
+									
+                                        {% endblock %}
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+                
+				</div>
+			</div>
+
+		</div>
+{% endblock %}
+<!-- ***** Contact Us Area Ends ***** -->
+
+<!-- ***** Footer Start ***** -->
+
+{% include "/frontend/footer.html.twig" %}
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+{% extends "frontend/base.html.twig" %}
+
+{% block title %}Détails de l'abonnement - FitPro Manager{% endblock %}
+{% block headerCard %}<h3 class="text-center font-weight-light my-4"><i class="fas fa-id-card me-2"></i>Détails de l'abonnement</h3>{% endblock %}
+
+{% block container %}
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <th class="text-muted" style="width: 40%;"><i class="fas fa-hashtag me-2"></i>ID</th>
+                        <td><span class="badge bg-secondary">{{ abonnement.idabonement }}</span></td>
+                    </tr>
+                    <tr>
+                        <th class="text-muted"><i class="fas fa-calendar me-2"></i>Date d'abonnement</th>
+                        <td>
+                            {% if abonnement.dateabonnement %}
+                                <i class="fas fa-clock me-1 text-muted"></i>
+                                {{ abonnement.dateabonnement|date('d/m/Y H:i') }}
+                            {% else %}
+                                <span class="text-muted">Non définie</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-3 d-flex justify-content-between">
+        <a href="{{ path('app_abonnement_index') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+        </a>
+        <div>
+            <a href="{{ path('app_abonnement_edit', {'idabonement': abonnement.idabonement}) }}" class="btn btn-warning">
+                <i class="fas fa-edit me-2"></i>Modifier
+            </a>
+            {{ include('abonnement/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

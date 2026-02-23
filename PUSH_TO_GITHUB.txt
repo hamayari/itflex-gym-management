@@ -1,0 +1,108 @@
+========================================
+  GUIDE RAPIDE - PUSH VERS GITHUB
+========================================
+
+PROJET: FitFlex - Gym Management System
+GITHUB: https://github.com/hamayari71-bit
+REPO NAME: fitflex-gym-management
+
+========================================
+ETAPES A SUIVRE:
+========================================
+
+1. INITIALISER GIT
+   cd SalleDeSport_Symfony-main
+   git init
+
+2. AJOUTER TOUS LES FICHIERS
+   git add .
+
+3. VERIFIER LES FICHIERS (IMPORTANT!)
+   git status
+   
+   VERIFIEZ QUE:
+   - Aucun fichier .md n'est inclus
+   - Aucun fichier "Copie" n'est inclus
+   - /vendor/ n'est PAS inclus
+   - .env.local n'est PAS inclus
+
+4. CREER LE PREMIER COMMIT
+   git commit -m "Initial commit: FitFlex Gym Management System"
+
+5. CREER LE REPO SUR GITHUB
+   - Allez sur: https://github.com/hamayari71-bit
+   - Cliquez "New repository"
+   - Nom: fitflex-gym-management
+   - Description: A modern gym management system built with Symfony 6
+   - Public ou Private (votre choix)
+   - NE PAS cocher "Initialize with README"
+   - Cliquez "Create repository"
+
+6. CONNECTER AU REPO GITHUB
+   git remote add origin https://github.com/hamayari71-bit/fitflex-gym-management.git
+   git branch -M main
+
+7. POUSSER VERS GITHUB
+   git push -u origin main
+
+========================================
+SI ERREUR D'AUTHENTIFICATION:
+========================================
+
+Option A - Token Personnel:
+1. Créez un token: https://github.com/settings/tokens
+2. Utilisez le token comme mot de passe
+
+Option B - SSH (Recommandé):
+1. ssh-keygen -t ed25519 -C "votre-email@example.com"
+2. Ajoutez la clé: https://github.com/settings/keys
+3. git remote set-url origin git@github.com:hamayari71-bit/fitflex-gym-management.git
+4. git push -u origin main
+
+========================================
+VERIFICATION POST-PUSH:
+========================================
+
+Sur GitHub, vérifiez:
+✓ Aucun fichier .md n'est présent
+✓ Aucun fichier "Copie" n'est présent
+✓ /vendor/ n'est PAS présent
+✓ Structure du projet complète
+✓ Tous les fichiers source sont présents
+
+========================================
+COMMANDES UTILES:
+========================================
+
+Voir l'état:
+  git status
+
+Voir les fichiers ignorés:
+  git status --ignored
+
+Historique:
+  git log --oneline
+
+Nouvelle branche:
+  git checkout -b feature/nom
+
+Mettre à jour:
+  git pull origin main
+
+========================================
+IMPORTANT:
+========================================
+
+- AUCUN fichier .md ne sera poussé (par design)
+- Si vous voulez un README sur GitHub, créez-le directement sur GitHub
+- Ou créez un README.txt et renommez-le en .md après le push
+- Ne commitez JAMAIS de données sensibles
+
+========================================
+SUPPORT:
+========================================
+
+En cas de problème, créez une issue sur GitHub
+ou contactez: hamayari71-bit
+
+Bon déploiement! 🚀

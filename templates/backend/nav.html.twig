@@ -1,0 +1,200 @@
+<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+    <div class="sb-sidenav-menu">
+        <div class="nav">
+            <div class="sb-sidenav-menu-heading">Administration</div>
+
+            <!-- User Section -->
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsUser" aria-expanded="false" aria-controls="collapseLayoutsUser">
+                <div class="sb-nav-link-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                Utilisateurs
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div class="collapse" id="collapseLayoutsUser" aria-labelledby="headingUser" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="{{ path('app_user_index') }}">
+                        <i class="fas fa-list me-2"></i>Liste des utilisateurs
+                    </a>
+                    <a class="nav-link" href="{{ path('app_user_new') }}">
+                        <i class="fas fa-user-plus me-2"></i>Ajouter un utilisateur
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Event Section -->
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsEvent" aria-expanded="false" aria-controls="collapseLayoutsEvent">
+                <div class="sb-nav-link-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                Événements
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div class="collapse" id="collapseLayoutsEvent" aria-labelledby="headingEvent" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="{{ path('app_event_index') }}">
+                        <i class="fas fa-list me-2"></i>Liste des événements
+                    </a>
+                    <a class="nav-link" href="{{ path('app_event_new') }}">
+                        <i class="fas fa-plus me-2"></i>Ajouter un événement
+                    </a>
+                    <a class="nav-link" href="/type/event/">
+                        <i class="fas fa-tags me-2"></i>Types d'événements
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Activity Section -->
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsActivity" aria-expanded="false" aria-controls="collapseLayoutsActivity">
+                <div class="sb-nav-link-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                Activités
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div class="collapse" id="collapseLayoutsActivity" aria-labelledby="headingActivity" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="{{ path('app_activites_index') }}">
+                        <i class="fas fa-list me-2"></i>Liste des activités
+                    </a>
+                    <a class="nav-link" href="{{ path('app_activites_new') }}">
+                        <i class="fas fa-plus me-2"></i>Ajouter une activité
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Equipment Section -->
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsEquipment" aria-expanded="false" aria-controls="collapseLayoutsEquipment">
+                <div class="sb-nav-link-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                Équipements
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div class="collapse" id="collapseLayoutsEquipment" aria-labelledby="headingEquipment" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="{{ path('app_equipement_index') }}">
+                        <i class="fas fa-list me-2"></i>Liste des équipements
+                    </a>
+                    <a class="nav-link" href="{{ path('app_equipement_new') }}">
+                        <i class="fas fa-plus me-2"></i>Ajouter un équipement
+                    </a>
+                    <a class="nav-link" href="{{ path('export_Excel') }}">
+                        <i class="fas fa-file-excel me-2"></i>Exporter Excel
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Categorie Section -->
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsCategorie" aria-expanded="false" aria-controls="collapseLayoutsCategorie">
+                <div class="sb-nav-link-icon">
+                    <i class="fas fa-folder"></i>
+                </div>
+                Catégories
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div class="collapse" id="collapseLayoutsCategorie" aria-labelledby="headingCategorie" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="{{ path('app_categorie_index') }}">
+                        <i class="fas fa-list me-2"></i>Liste des catégories
+                    </a>
+                    <a class="nav-link" href="{{ path('app_categorie_new') }}">
+                        <i class="fas fa-plus me-2"></i>Ajouter une catégorie
+                    </a>
+                </nav>
+            </div>
+
+            <div class="sb-sidenav-menu-heading">Planification</div>
+
+            <!-- Calendrier Section -->
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsCalendrier" aria-expanded="false" aria-controls="collapseLayoutsCalendrier">
+                <div class="sb-nav-link-icon">
+                    <i class="fas fa-calendar"></i>
+                </div>
+                Calendriers
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div class="collapse" id="collapseLayoutsCalendrier" aria-labelledby="headingCalendrier" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="/mainn">
+                        <i class="fas fa-running me-2"></i>Calendrier des activités
+                    </a>
+                    <a class="nav-link" href="/mainnn">
+                        <i class="fas fa-wrench me-2"></i>Calendrier des équipements
+                    </a>
+                </nav>
+            </div>
+
+            <div class="sb-sidenav-menu-heading">Services</div>
+
+            <!-- Offre/Abonnement Section -->
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsOffreAbonnement" aria-expanded="false" aria-controls="collapseLayoutsOffreAbonnement">
+                <div class="sb-nav-link-icon">
+                    <i class="fas fa-ticket-alt"></i>
+                </div>
+                Offres & Abonnements
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div class="collapse" id="collapseLayoutsOffreAbonnement" aria-labelledby="headingOffreAbonnement" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="{{ path('app_offer_index') }}">
+                        <i class="fas fa-gift me-2"></i>Offres
+                    </a>
+                    <a class="nav-link" href="/type/abonn/">
+                        <i class="fas fa-id-card me-2"></i>Abonnements
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Magasin Section -->
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsMagasin" aria-expanded="false" aria-controls="collapseLayoutsMagasin">
+                <div class="sb-nav-link-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                Boutique
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div class="collapse" id="collapseLayoutsMagasin" aria-labelledby="headingMagasin" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="/categorie/magasin/new">
+                        <i class="fas fa-tags me-2"></i>Catégories
+                    </a>
+                    <a class="nav-link" href="/produit">
+                        <i class="fas fa-box me-2"></i>Produits
+                    </a>
+                </nav>
+            </div>
+
+            <div class="sb-sidenav-menu-heading">Communauté</div>
+
+            <!-- Poste Section -->
+            <a class="nav-link" href="/post">
+                <div class="sb-nav-link-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                Forum & Publications
+            </a>
+
+        </div>
+    </div>
+    <div class="sb-sidenav-footer">
+        <div class="small">Connecté en tant que:</div>
+        Administrateur
+    </div>
+</nav>

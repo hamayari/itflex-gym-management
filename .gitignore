@@ -1,0 +1,116 @@
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+.env
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> Documentation files (exclude ALL .md files) ###
+*.md
+###< Documentation files ###
+
+###> IDE ###
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+###< IDE ###
+
+###> Composer ###
+composer.phar
+/vendor/
+###< Composer ###
+
+###> Node ###
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+###< Node ###
+
+###> Logs ###
+*.log
+/var/log/*
+!var/log/.gitkeep
+###< Logs ###
+
+###> Cache ###
+/var/cache/*
+!var/cache/.gitkeep
+###< Cache ###
+
+###> Uploads ###
+/public/uploads/*
+!public/uploads/.gitkeep
+###< Uploads ###
+
+###> Backup files ###
+*.bak
+*.backup
+*.old
+*.orig
+*~
+###< Backup files ###
+
+###> OS ###
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+###< OS ###
+
+###> Test files ###
+create_test_users.sql
+hash_password.php
+verify_password.php
+###< Test files ###
+
+###> Temporary files ###
+*.tmp
+*.temp
+/tmp/
+###< Temporary files ###
+
+###> Database ###
+*.sqlite
+*.db
+!admin_panel/DB/*.sql
+###< Database ###
+
+###> Docker ###
+docker-compose.override.yml
+.docker/
+###< Docker ###
+
+###> Duplicate/Backup files ###
+*- Copie.*
+*- Copie
+*.bak
+*.backup
+*.old
+*.orig
+###< Duplicate/Backup files ###
+
+###> Test/Development files ###
+create_test_users.sql
+hash_password.php
+verify_password.php
+test.php
+###< Test/Development files ###

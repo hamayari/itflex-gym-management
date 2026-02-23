@@ -1,0 +1,62 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Catalogue des produits{% endblock %}
+{% block page_title %}Gestion de la Boutique{% endblock %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Produits</li>
+{% endblock %}
+
+{% block body %}
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">
+            <i class="fas fa-box me-2"></i>Catalogue des produits
+        </h6>
+        <a href="{{ path('app_produit_new') }}" class="btn btn-primary btn-sm">
+            <i class="fas fa-plus me-1"></i>Ajouter un produit
+        </a>
+    </div>
+    <div class="card-body">
+        <form id="search-form" class="mb-4">
+            <div style="display: none">{{ csrf_token('search-form') }}</div>
+            <div class="input-group">
+                <input type="text" id="search-input" class="form-control" placeholder="Rechercher un produit...">
+                <button type="submit" id="search-button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+        
+        <div class="row card-deck" id="products-container">
+            {% include 'produit/Search_list.html.twig' with {'produits': produits} %}
+        </div>
+    </div>
+</div>
+
+{% block javascripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(function() {
+    $('#search-form').submit(function(event) {
+        event.preventDefault();
+        var searchTerm = $('#search-input').val();
+        $.ajax({
+            url: '{{ path('app_search_produits') }}',
+            type: 'POST',
+            data: {searchTerm: searchTerm},
+            success: function(response) {
+                if (response) {
+                    $('#products-container').html(response);
+                } else {
+                    console.error('La réponse de la recherche est vide.');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Erreur Ajax:', status, error);
+            }
+        });
+    });
+});
+</script>
+{% endblock %}
+{% endblock %}

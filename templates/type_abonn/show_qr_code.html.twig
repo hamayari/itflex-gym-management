@@ -1,0 +1,35 @@
+{% extends 'backend/base.html.twig' %}
+
+
+{% block title %}Type Abonnement{% endblock %}
+
+ {% block nom %}
+ 
+                         <h1 class="mt-4">Abonnement</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Abonnement</li>
+                        </ol> 
+                        {% endblock %}
+
+{% block body %}
+
+    <p>Scan the QR code below:</p>
+
+
+    <p>Type: {{ type_abonn.getType() }}</p>
+    <p>Description: {{ type_abonn.getDescription() }}</p>
+    <p>Number of subscriptions: {{ type_abonn.getnb_abonnement() }}</p>
+
+    {# <a href="{{ path('app_type_abonn_index') }}">Back to Type Abonnements</a> #}
+    <form action = "{{path('app_type_abonn_index') }}"> <button style="background-color: #1b95b2; color: white;">Back to Type Abonnements</button></form></td>
+
+{% endblock %}
+
+
+                        {% block viewDetails%}
+
+                            {% if app.request.attributes.get('_route') != 'app_type_abonn_index'  %}
+                        {% endif %}
+                        {% endblock %}
+
+

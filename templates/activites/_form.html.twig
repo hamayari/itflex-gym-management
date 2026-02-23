@@ -1,0 +1,11 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_row(form.categorie) }}
+    {{ form_row(form.dateDeb) }}
+    {{ form_row(form.dateFin) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.salle) }}
+    {{ form_row(form.titre) }}
+    {{ form_row(form.idcategorie) }}
+    {{ form_row(form.idUser) }}
+<button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

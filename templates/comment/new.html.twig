@@ -1,0 +1,26 @@
+{% extends "frontend/base.html.twig" %}
+
+{% block title %}Nouveau commentaire - FitPro Manager{% endblock %}
+{% block headerCard %}
+	<h3 class="text-center font-weight-light my-4"><i class="fas fa-plus-circle me-2"></i>Nouveau commentaire</h3>
+{% endblock %}
+{% block container %}
+    {# Display Flash Messages #}
+    {% for flash_message in app.flashes('danger') %}
+        <div class="alert alert-danger">
+            <i class="fas fa-exclamation-triangle me-2"></i>{{ flash_message }}
+        </div>
+    {% endfor %}
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            {{ include('comment/_form.html.twig') }}
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <a href="{{ path('app_comment_index') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+        </a>
+    </div>
+{% endblock %}

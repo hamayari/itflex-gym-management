@@ -1,0 +1,47 @@
+{% extends "frontend/base.html.twig" %}
+
+{% block title %}
+	Equipement
+{% endblock %}
+{% block headerCard %}
+	<h3 class="text-center font-weight-light my-4">Equipement</h3>
+{% endblock %}
+{% block container %}
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                {#<th>IdEquipement</th>#}
+                <th>Equipement</th>
+                <th>Quantite</th>
+                {#<th>DateAchat</th>#}
+                {#<th>PrixAchat</th>#}
+                {#<th>actions</th>#}
+            </tr>
+        </thead>
+        <tbody>
+        {% for equipement in equipements %}
+            <tr>
+                {#<td>{{ equipement.IdEquipement }}</td>#}
+                <td>{{ equipement.NomEquipement }}</td>
+                <td>{{ equipement.Quantite }}</td>
+                {#<td>{{ equipement.DateAchat ? equipement.DateAchat|date('Y-m-d') : '' }}</td>#}
+                {#<td>{{ equipement.PrixAchat }}</td>#}
+                {#<td>
+                    <a href="{{ path('app_equipement_show', {'IdEquipement': equipement.IdEquipement}) }}">show</a>
+                    <a href="{{ path('app_equipement_edit', {'IdEquipement': equipement.IdEquipement}) }}">edit</a>
+                </td>#}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    
+
+   {# <a href="{{ path('app_equipement_new') }}">Create new</a>#}
+    </center>
+{% endblock %}

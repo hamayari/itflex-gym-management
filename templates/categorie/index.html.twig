@@ -1,0 +1,86 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Liste des catégories{% endblock %}
+{% block page_title %}Gestion des Catégories{% endblock %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Catégories</li>
+{% endblock %}
+
+{% block body %}
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">
+            <i class="fas fa-folder me-2"></i>Liste des catégories
+        </h6>
+        <a href="{{ path('app_categorie_new') }}" class="btn btn-primary btn-sm">
+            <i class="fas fa-plus me-1"></i>Ajouter une catégorie
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+            <input type="text" class="form-control" id="searchInput" placeholder="Rechercher une catégorie...">
+        </div>
+        
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="categorieTable">
+                <thead class="table-light">
+                    <tr>
+                        <th width="10%">ID</th>
+                        <th width="25%">Nom</th>
+                        <th width="45%">Description</th>
+                        <th width="20%" class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for categorie in categories %}
+                    <tr>
+                        <td>{{ categorie.IdCategorie }}</td>
+                        <td><strong>{{ categorie.NomCategorie }}</strong></td>
+                        <td>{{ categorie.DescriptionCategorie }}</td>
+                        <td class="text-center">
+                            <div class="btn-group" role="group">
+                                <a href="{{ path('app_categorie_show', {'IdCategorie': categorie.IdCategorie}) }}" 
+                                   class="btn btn-info btn-sm" title="Voir">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="{{ path('app_categorie_edit', {'IdCategorie': categorie.IdCategorie}) }}" 
+                                   class="btn btn-success btn-sm" title="Modifier">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <form method="post" 
+                                      action="{{ path('app_categorie_delete', {'IdCategorie': categorie.IdCategorie}) }}" 
+                                      onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie?');"
+                                      style="display: inline;">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ categorie.IdCategorie) }}">
+                                    <button class="btn btn-danger btn-sm" title="Supprimer">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">
+                            <i class="fas fa-info-circle me-2"></i>Aucune catégorie trouvée
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('searchInput').addEventListener('keyup', function() {
+    const filter = this.value.toUpperCase();
+    const rows = document.querySelectorAll('#categorieTable tbody tr');
+    
+    rows.forEach(row => {
+        const text = row.textContent.toUpperCase();
+        row.style.display = text.includes(filter) ? '' : 'none';
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Nouvelle offre{% endblock %}
+{% block page_title %}Gestion des Offres{% endblock %}
+{% block breadcrumb %}
+    <a href="{{ path('app_offer_index') }}" class="breadcrumb-item">Offres</a>
+    <li class="breadcrumb-item active">Nouvelle</li>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-10 offset-lg-1">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-primary text-white">
+                <h6 class="m-0 font-weight-bold">
+                    <i class="fas fa-gift me-2"></i>Créer une nouvelle offre
+                </h6>
+            </div>
+            <div class="card-body">
+                {{ include('offer/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base_front_hssan.html.twig' %}
+
+{% block title %}Activites{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Code</th>
+                <th>Categorie</th>
+                <th>DateDeb</th>
+                <th>DateFin</th>
+                <th>Description</th>
+                <th>Salle</th>
+                <th>Titre</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for activite in activites %}
+                <tr>
+                    <td>{{ activite.code }}</td>
+                    <td>{{ activite.idcategorie }}</td>
+                    <td>{{ activite.dateDeb ? activite.dateDeb|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ activite.dateFin ? activite.dateFin|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ activite.description }}</td>
+                    <td>{{ activite.salle }}</td>
+                    <td>{{ activite.titre }}</td>
+
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+{% endblock %}

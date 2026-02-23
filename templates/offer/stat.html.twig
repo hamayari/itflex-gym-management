@@ -1,0 +1,39 @@
+{% extends 'basepdf.html.twig' %}
+
+{% block title %}Diagramme des offer par type{% endblock %}
+{% block body %}
+    <div align="center" class="table-container content-wrapper" padding: 20px; margin-top: 50px;">
+        <h1>Diagramme des Offer par type</h1>
+        <div align="center"  id="chartContainer" style="height: 370px; width: 100%;"></div>
+    </div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+        window.onload = function () {
+            console.log("Data:", data);
+            const data = {{ data|json_encode|raw }};
+            const chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "Offer par type"
+                },
+                data: [{
+                    type: "pie",
+                    showInLegend: true,
+                    legendText: "{label}",
+                    toolTipContent: "{label}: <strong>{y}</strong>",
+                    dataPoints: [
+                        {#{% for type, count in data %}
+                            { label: "{{ type }}", y: {{ count }} },
+                        {% endfor %}#}
+                         {% for item in data %}
+                         
+                        { label: "{{ item.label }}", y: {{ item.y }} },
+                         {% endfor %}
+                    ]
+                }]
+            });
+            chart.render();
+        }
+    </script>
+    
+{% endblock %}

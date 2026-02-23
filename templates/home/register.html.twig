@@ -1,0 +1,61 @@
+{% extends 'frontend/base.html.twig' %}
+{% block headerCard %}
+	<h3 class="text-center font-weight-light my-4">Register</h3>
+{% endblock %}
+		{% block container %}
+		<form
+			action="{{ path('user_save') }}" method="POST">
+			<!-- First Row -->
+			<div class="row mb-3">
+				<div class="col-md-6">
+					<div class="form-floating mb-3 mb-md-0">
+						<input class="form-control" id="fname" name="fname" type="text" placeholder="Enter your first name"/>
+
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-floating">
+
+						<input class="form-control" id="lname" name="lname" type="text" placeholder="Enter your last name"/>
+
+					</div>
+				</div>
+			</div>
+			<!-- Second Row -->
+			<div class="form-floating mb-3">
+				<input class="form-control" id="email" name="email" type="email" placeholder="name@example.com"/>
+
+			</div>
+			<!-- Third Row -->
+			<div class="row mb-3">
+				<div class="col-md-6">
+					<div class="form-floating mb-3 mb-md-0">
+						<input class="form-control" id="password" name="password" type="password" placeholder="Create a password"/>
+
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-floating">
+						<input class="form-control" id="age" type="number" name="age" placeholder="Enter your age"/>
+
+					</div>
+				</div>
+
+
+			</div>
+			<div class="col-md-6">
+				<div class="form-floating">
+					<input class="form-control" id="numtel" type="number" name="numtel" placeholder="Enter your number"/>
+
+				</div>
+			</div>
+			<input type="radio" id="sex1" name="sex" value="Homme">
+			<label for="sex1">Homme</label>
+			<input type="radio" id="sex2" name="sex" value="Femme">
+			<label for="sex2">Femme</label><br>
+			<!-- Submit Button -->
+			<button type="submit" class="btn btn-primary">Register</button>
+
+		</form>
+   {% endblock %}
+

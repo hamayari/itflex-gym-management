@@ -1,0 +1,122 @@
+{% for offer in results %}
+    <tr>
+        <td>{{ offer.titleoffer }}</td>
+        <td>{{ offer.descriptionoffer }}</td>
+        <td>{{ offer.prix }}</td>
+        <td>{{ offer.datedeboffer ? offer.datedeboffer|date('Y-m-d') : '' }}</td>
+        <td>{{ offer.datefinoffer ? offer.datefinoffer|date('Y-m-d') : '' }}</td>
+        <td>{{ offer.nb_reservation }}</td>
+        <td>{{ offer.nb_max_reservation }}</td>
+        <td>
+            <form action="{{ path('app_offer_show', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;"><i class="fa fa-download" aria-hidden="true"></i></button></form>
+            <form action="{{ path('app_offer_edit', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;">edit</button></form>
+        </td>
+    </tr>
+{% else %}
+
+            {% for offer in results2 %}
+                <tr>
+                    <td>{{ offer.titleoffer }}</td>
+                    <td>{{ offer.descriptionoffer }}</td>
+                    <td>{{ offer.prix }}</td>
+                    <td>{{ offer.datedeboffer ? offer.datedeboffer|date('Y-m-d') : '' }}</td>
+                    <td>{{ offer.datefinoffer ? offer.datefinoffer|date('Y-m-d') : '' }}</td>
+                    <td>{{ offer.nb_reservation }}</td>
+                    <td>{{ offer.nb_max_reservation }}</td>
+                    <td>
+                        <form action="{{ path('app_offer_show', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;"><i class="fa fa-download" aria-hidden="true"></i></button></form>
+                        <form action="{{ path('app_offer_edit', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;">edit</button></form>
+                    </td>
+                </tr>
+            {% else %}
+
+                         
+                                    {% for offer in results3 %}
+                                    <tr>
+                                        <td>{{ offer.titleoffer }}</td>
+                                        <td>{{ offer.descriptionoffer }}</td>
+                                        <td>{{ offer.prix }}</td>
+                                        <td>{{ offer.datedeboffer ? offer.datedeboffer|date('Y-m-d') : '' }}</td>
+                                        <td>{{ offer.datefinoffer ? offer.datefinoffer|date('Y-m-d') : '' }}</td>
+                                        <td>{{ offer.nb_reservation }}</td>
+                                        <td>{{ offer.nb_max_reservation }}</td>
+                                        <td>
+                                            <form action="{{ path('app_offer_show', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;"><i class="fa fa-download" aria-hidden="true"></i></button></form>
+                                            <form action="{{ path('app_offer_edit', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;">edit</button></form>
+                                        </td>
+                                    </tr>
+                                {% else %}
+
+                                            {% for offer in results4 %}
+                                            <tr>
+                                                    <td>{{ offer.titleoffer }}</td>
+                                                    <td>{{ offer.descriptionoffer }}</td>
+                                                    <td>{{ offer.prix }}</td>
+                                                    <td>{{ offer.datedeboffer ? offer.datedeboffer|date('Y-m-d') : '' }}</td>
+                                                    <td>{{ offer.datefinoffer ? offer.datefinoffer|date('Y-m-d') : '' }}</td>
+                                                    <td>{{ offer.nb_reservation }}</td>
+                                                    <td>{{ offer.nb_max_reservation }}</td>
+                                                    <td>
+                                                        <form action="{{ path('app_offer_show', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;"><i class="fa fa-download" aria-hidden="true"></i></button></form>
+                                                        <form action="{{ path('app_offer_edit', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;">edit</button></form>
+                                                    </td>
+                                                </tr>
+                                            {% else %}
+   
+                                                        {% for offer in results5 %}
+                                                            <tr>
+                                                                <td>{{ offer.titleoffer }}</td>
+                                                                <td>{{ offer.descriptionoffer }}</td>
+                                                                <td>{{ offer.prix }}</td>
+                                                                <td>{{ offer.datedeboffer ? offer.datedeboffer|date('Y-m-d') : '' }}</td>
+                                                                <td>{{ offer.datefinoffer ? offer.datefinoffer|date('Y-m-d') : '' }}</td>
+                                                                <td>{{ offer.nb_reservation }}</td>
+                                                                <td>{{ offer.nb_max_reservation }}</td>
+                                                                <td>
+                                                                    <form action="{{ path('app_offer_show', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;"><i class="fa fa-download" aria-hidden="true"></i></button></form>
+                                                                    <form action="{{ path('app_offer_edit', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;">edit</button></form>
+                                                                </td>
+                                                            </tr>
+                                                        {% else %}
+
+                                                                    {% for offer in results6 %}
+                                                                    <tr>
+                                                                            <td>{{ offer.titleoffer }}</td>
+                                                                            <td>{{ offer.descriptionoffer }}</td>
+                                                                            <td>{{ offer.prix }}</td>
+                                                                            <td>{{ offer.datedeboffer ? offer.datedeboffer|date('Y-m-d') : '' }}</td>
+                                                                            <td>{{ offer.datefinoffer ? offer.datefinoffer|date('Y-m-d') : '' }}</td>
+                                                                            <td>{{ offer.nb_reservation }}</td>
+                                                                            <td>{{ offer.nb_max_reservation }}</td>
+                                                                            <td>
+                                                                                <form action="{{ path('app_offer_show', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;"><i class="fa fa-download" aria-hidden="true"></i></button></form>
+                                                                                <form action="{{ path('app_offer_edit', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;">edit</button></form>
+                                                                            </td>
+                                                                        </tr>
+                                                                    {% else %}
+   
+                                                                                {% for offer in results7 %}
+                                                                                    <tr>
+                                                                                        <td>{{ offer.titleoffer }}</td>
+                                                                                        <td>{{ offer.descriptionoffer }}</td>
+                                                                                        <td>{{ offer.prix }}</td>
+                                                                                        <td>{{ offer.datedeboffer ? offer.datedeboffer|date('Y-m-d') : '' }}</td>
+                                                                                        <td>{{ offer.datefinoffer ? offer.datefinoffer|date('Y-m-d') : '' }}</td>
+                                                                                        <td>{{ offer.nb_reservation }}</td>
+                                                                                        <td>{{ offer.nb_max_reservation }}</td>
+                                                                                        <td>
+                                                                                            <form action="{{ path('app_offer_show', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;"><i class="fa fa-download" aria-hidden="true"></i></button></form>
+                                                                                            <form action="{{ path('app_offer_edit', {'idoffer': offer.idoffer}) }}"><button style="background-color: #1b95b2; color: white;">edit</button></form>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                {% else %}
+                                                                                    <tr>
+                                                                                        <td colspan="3">no records found</td>
+                                                                                    </tr>
+                                                                                {% endfor %}
+                                                                        {% endfor %}
+                                                            {% endfor %}
+                                                {% endfor %}
+                                    {% endfor %}
+                        {% endfor %}
+            {% endfor %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include "frontend/header.html.twig" %}
+
+<body>
+{% include "frontend/body.html.twig" %}
+
+{% block register %}
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner" id="top">
+        <video autoplay muted loop id="bg-video">
+            <source src="{{ asset('FrontOffice/images/gym-video.mp4') }}" type="video/mp4" />
+        </video>
+
+        <div class="video-overlay header-text">
+            <div class="caption">
+                <h6>work harder, get stronger</h6>
+                <h2>easy with our <em>gym</em></h2>
+                <div class="main-button scroll-to-section">
+                    <a href="{{ path('user_register') }}">Rejoignez-nous !</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+{% include "/frontend/data.html.twig" %}
+<!-- ***** Contact Us Area Ends ***** -->
+
+<!-- ***** Footer Start ***** -->
+
+{% include "/frontend/footer.html.twig" %}
+</body>
+
+</html>

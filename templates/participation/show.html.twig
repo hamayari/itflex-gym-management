@@ -1,0 +1,54 @@
+{% extends "frontend/base.html.twig" %}
+
+{% block title %}Détails de la réservation - FitPro Manager{% endblock %}
+{% block headerCard %}<h3 class="text-center font-weight-light my-4"><i class="fas fa-calendar-check me-2"></i>Détails de la réservation</h3>{% endblock %}
+
+{% block container %}
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-borderless">
+                <tbody>
+                    <tr>
+                        <th class="text-muted" style="width: 30%;"><i class="fas fa-hashtag me-2"></i>Identifiant</th>
+                        <td><span class="badge bg-secondary">{{ participation.idpart }}</span></td>
+                    </tr>
+                    <tr>
+                        <th class="text-muted"><i class="fas fa-user me-2"></i>Nom</th>
+                        <td><strong>{{ participation.nom }}</strong></td>
+                    </tr>
+                    <tr>
+                        <th class="text-muted"><i class="fas fa-user me-2"></i>Prénom</th>
+                        <td>{{ participation.prenom }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-muted"><i class="fas fa-phone me-2"></i>Téléphone</th>
+                        <td><i class="fas fa-phone-alt me-1 text-muted"></i>{{ participation.ntel }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-muted"><i class="fas fa-calendar me-2"></i>Date</th>
+                        <td>
+                            {% if participation.datepart %}
+                                <i class="fas fa-clock me-1 text-muted"></i>
+                                {{ participation.datepart|date('d/m/Y H:i') }}
+                            {% else %}
+                                <span class="text-muted">Non définie</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-3 d-flex justify-content-between">
+        <a href="{{ path('app_participation_index') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+        </a>
+        <div>
+            <a href="{{ path('app_participation_edit', {'idpart': participation.idpart}) }}" class="btn btn-warning">
+                <i class="fas fa-edit me-2"></i>Modifier
+            </a>
+            {{ include('participation/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

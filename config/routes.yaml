@@ -1,0 +1,28 @@
+#index:
+#    path: /
+
+#    controller: App\Controller\DefaultController::index
+
+# config/routes.yaml
+
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+app_logout:
+    path: /logout
+
+new_reservation_offer:
+    path: '/new_reservation_offer/{id}'
+    controller: 'App\Controller\ReservationOfferController::new'
+app_reservation_offer_index:
+    path: 'app_reservation_offer_index'
+    controller: 'App\Controller\ReservationOfferController::index'
+
+app_offer_index:
+    path: '/offer/'
+    controller: 'App\Controller\OfferController::index'
+
+
+

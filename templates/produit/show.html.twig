@@ -1,0 +1,73 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Détails du produit{% endblock %}
+{% block page_title %}Gestion de la Boutique{% endblock %}
+{% block breadcrumb %}
+    <a href="{{ path('app_produit_index') }}" class="breadcrumb-item">Produits</a>
+    <li class="breadcrumb-item active">Détails</li>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-info text-white">
+                <h6 class="m-0 font-weight-bold">
+                    <i class="fas fa-box me-2"></i>{{ produit.titre }}
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-4 text-center">
+                        {% if produit.image %}
+                            <img src="{{ asset('uploads/images/' ~ produit.image) }}" 
+                                 alt="{{ produit.titre }}" 
+                                 class="img-fluid rounded shadow"
+                                 style="max-height: 250px;">
+                        {% else %}
+                            <div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 250px;">
+                                <i class="fas fa-image fa-3x text-muted"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th width="40%"><i class="fas fa-tag text-primary me-2"></i>Titre</th>
+                                    <td><strong>{{ produit.titre }}</strong></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fas fa-folder text-primary me-2"></i>Catégorie</th>
+                                    <td>{{ produit.categorie }}</td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fas fa-calendar text-primary me-2"></i>Date</th>
+                                    <td>{{ produit.date ? produit.date|date('d/m/Y') : '' }}</td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fas fa-align-left text-primary me-2"></i>Description</th>
+                                    <td>{{ produit.description }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-white">
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app_produit_index') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+                    </a>
+                    <div class="d-flex gap-2">
+                        <a href="{{ path('app_produit_edit', {'id': produit.id}) }}" class="btn btn-success">
+                            <i class="fas fa-edit me-2"></i>Modifier
+                        </a>
+                        {{ include('produit/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

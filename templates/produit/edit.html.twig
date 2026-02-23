@@ -1,0 +1,25 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Modifier le produit{% endblock %}
+{% block page_title %}Gestion de la Boutique{% endblock %}
+{% block breadcrumb %}
+    <a href="{{ path('app_produit_index') }}" class="breadcrumb-item">Produits</a>
+    <li class="breadcrumb-item active">Modifier</li>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-10 offset-lg-1">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-success text-white">
+                <h6 class="m-0 font-weight-bold">
+                    <i class="fas fa-edit me-2"></i>Modifier le produit
+                </h6>
+            </div>
+            <div class="card-body">
+                {{ include('produit/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

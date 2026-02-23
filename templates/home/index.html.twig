@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - FETFLIX GYM{% endblock %}
+
+{% block body %}
+<div class="container">
+    {# Hero Section #}
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6">
+            <h1 class="display-3 fw-bold text-white mb-4">
+                Bienvenue chez <br><span class="text-warning">FETFLIX GYM</span>
+            </h1>
+            <p class="lead text-white mb-4">
+                Transformez votre corps, transformez votre vie. Rejoignez la meilleure salle de sport de la ville!
+            </p>
+            <div class="d-flex gap-3">
+                <a href="{{ path('user_register') }}" class="btn btn-warning btn-lg">
+                    <i class="fas fa-user-plus"></i> S'inscrire
+                </a>
+                <a href="{{ path('affiche_TypeAbonn') }}" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-dumbbell"></i> Nos Offres
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card bg-white p-4">
+                <h3 class="text-center mb-4">Nos Services</h3>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="text-center p-3 bg-light rounded">
+                            <i class="fas fa-calendar-alt fa-3x text-primary mb-3"></i>
+                            <h5>Événements</h5>
+                            <a href="{{ path('app_event_indexf') }}" class="btn btn-sm btn-primary">Découvrir</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center p-3 bg-light rounded">
+                            <i class="fas fa-tag fa-3x text-success mb-3"></i>
+                            <h5>Offres Spéciales</h5>
+                            <a href="{{ path('app_reservation_offer_index') }}" class="btn btn-sm btn-success">Voir</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center p-3 bg-light rounded">
+                            <i class="fas fa-running fa-3x text-warning mb-3"></i>
+                            <h5>Activités</h5>
+                            <a href="{{ path('app_main') }}" class="btn btn-sm btn-warning">Explorer</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-center p-3 bg-light rounded">
+                            <i class="fas fa-comments fa-3x text-info mb-3"></i>
+                            <h5>Forum</h5>
+                            <a href="{{ path('app_post_indexf') }}" class="btn btn-sm btn-info">Participer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Features Section #}
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4">
+                <i class="fas fa-trophy fa-4x text-warning mb-3"></i>
+                <h4>Équipements Modernes</h4>
+                <p>Matériel de dernière génération pour tous vos entraînements</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4">
+                <i class="fas fa-users fa-4x text-primary mb-3"></i>
+                <h4>Coachs Professionnels</h4>
+                <p>Une équipe d'experts pour vous accompagner dans vos objectifs</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4">
+                <i class="fas fa-clock fa-4x text-success mb-3"></i>
+                <h4>Horaires Flexibles</h4>
+                <p>Ouvert 7j/7 pour s'adapter à votre emploi du temps</p>
+            </div>
+        </div>
+    </div>
+
+    {# Call to Action #}
+    <div class="row">
+        <div class="col-12">
+            <div class="card bg-gradient text-white text-center p-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <h2 class="mb-4">Prêt à commencer votre transformation?</h2>
+                <p class="lead mb-4">Inscrivez-vous maintenant et profitez de nos offres exclusives!</p>
+                <div>
+                    <a href="{{ path('user_register') }}" class="btn btn-light btn-lg me-3">
+                        <i class="fas fa-rocket"></i> Commencer Maintenant
+                    </a>
+                    <a href="{{ path('app_login') }}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-sign-in-alt"></i> Se Connecter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

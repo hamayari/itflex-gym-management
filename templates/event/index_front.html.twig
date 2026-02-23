@@ -1,0 +1,86 @@
+{% extends '/frontend/base.html.twig' %}
+{% block title %}{% endblock %}
+{% block headerCard %}<h3 class="text-center font-weight-light my-4">List Of Events</h3>{% endblock %}
+{% block container %}
+
+<style>
+    .meeting-item .details {
+        display: none;
+        position: absolute;
+        background-color: white;
+        padding: 10px;
+        border: 1px solid #ccc;
+        z-index: 1;
+        width: 200px; /* Adjust the width as needed */
+    }
+
+    .meeting-item:hover .details {
+        display: block;
+    }
+</style>
+{% block search %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-primary">Search</button>
+    {{ form_end(form) }}
+{% endblock %}
+<div class="row">
+    {% for event in events %}
+        <div class="col-lg-4 templatemo-item-col all soon">
+            <div class="meeting-item">
+                <div class="thumb">
+                    {% if event.imgevent %}
+                        <img src="{{ asset('uploads/images/' ~ event.imgevent) }}" alt="{{ event.titreevent }}" style="max-width: 250px; max-height: 250px;">
+                        <div class="details">
+                            <p>Coach: {{ event.nomcoach }}</p>
+                            <p>Type: {{ event.idtype.type}}</p>
+                            <p>Address: {{ event.adresseevent }}</p>
+                            <p>Price: {{ event.prixevent }}</p>
+                            <p>Date: {{ event.dateevent ? event.dateevent|date('Y-m-d') : '' }}</p>
+                            <p>Places Reserved: {{ event.nombreplacesreservees }}</p>
+                            <p>Total Places: {{ event.nombreplacestotal }}</p>
+                        </div>
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </div>
+                <div class="down-content">
+                    <div class="flex-container">
+                        <div class="document-name">
+                            <span style="font-weight: bold; font-size: 1.2em; color: #ff6347;">{{ event.titreevent }}</span>
+                        </div>
+                        <div class="show-button">
+                        
+                            {% set availablePlaces = event.nombreplacestotal - event.nombreplacesreservees %}
+                            {% if availablePlaces > 0 %}
+                                <a href="{{ path('app_participation_new', {'idevent': event.idevent}) }}" class="btn btn-success">Reserver</a>
+                            {% else %}
+                                <button class="btn btn-success" disabled>Event Full</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="col-lg-12">
+            <p>No records found</p>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    // Pure JavaScript
+    var thumbs = document.querySelectorAll('.thumb');
+    thumbs.forEach(function(thumb) {
+        thumb.addEventListener('mouseover', function() {
+            this.querySelector('.details').style.display = 'block';
+        });
+
+        thumb.addEventListener('mouseout', function() {
+            this.querySelector('.details').style.display = 'none';
+        });
+    });
+</script>
+
+{% endblock %}

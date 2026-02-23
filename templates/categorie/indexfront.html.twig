@@ -1,0 +1,38 @@
+{% extends 'base_front_said.html.twig' %}
+
+{% block title %}Liste categorie{% endblock %}
+
+{% block body %}<center>
+    <h1>Liste categorie</h1>
+
+    <table class="table" border="2">
+        <thead>
+            <tr>
+                <th>IdCategorie</th>
+                <th>NomCategorie</th>
+                <th>DescriptionCategorie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.IdCategorie }}</td>
+                <td>{{ categorie.NomCategorie }}</td>
+                <td>{{ categorie.DescriptionCategorie }}</td>
+                <td>
+                    <a href="{{ path('app_categorie_show', {'IdCategorie': categorie.IdCategorie}) }}">show</a>
+                    <a href="{{ path('app_categorie_edit', {'IdCategorie': categorie.IdCategorie}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categorie_new') }}">Create new</a>
+    </center>
+{% endblock %}

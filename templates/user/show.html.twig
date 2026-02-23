@@ -1,0 +1,78 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Détails utilisateur{% endblock %}
+{% block page_title %}Gestion des Utilisateurs{% endblock %}
+{% block breadcrumb %}
+    <a href="{{ path('app_user_index') }}" class="breadcrumb-item">Utilisateurs</a>
+    <li class="breadcrumb-item active">Détails</li>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-info text-white">
+                <h6 class="m-0 font-weight-bold">
+                    <i class="fas fa-user me-2"></i>Profil de {{ users.nom }} {{ users.prenom }}
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-4 text-center">
+                        <img src="{{ asset('/BackOffice/images/' ~ (users.img ?: 'default.svg')) }}" 
+                             class="rounded-circle shadow" 
+                             height="150" 
+                             width="150" 
+                             alt="{{ users.nom }}"
+                             onerror="this.src='{{ asset('/BackOffice/images/default.svg') }}'">
+                        <div class="mt-3">
+                            <span class="badge bg-{{ users.role == 'ROLE_ADMIN' ? 'danger' : 'primary' }} fs-6">
+                                {{ users.role|replace({'ROLE_': ''}) }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th width="40%"><i class="fas fa-user text-primary me-2"></i>Nom complet</th>
+                                    <td>{{ users.nom }} {{ users.prenom }}</td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fas fa-envelope text-primary me-2"></i>Email</th>
+                                    <td><a href="mailto:{{ users.email }}">{{ users.email }}</a></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fas fa-phone text-primary me-2"></i>Téléphone</th>
+                                    <td>{{ users.numtel }}</td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fas fa-birthday-cake text-primary me-2"></i>Âge</th>
+                                    <td>{{ users.age }} ans</td>
+                                </tr>
+                                <tr>
+                                    <th><i class="fas fa-venus-mars text-primary me-2"></i>Sexe</th>
+                                    <td>{{ users.sex }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-white">
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app_user_index') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+                    </a>
+                    <div class="d-flex gap-2">
+                        <a href="{{ path('app_user_edit', {'id': users.id}) }}" class="btn btn-success">
+                            <i class="fas fa-edit me-2"></i>Modifier
+                        </a>
+                        {{ include('user/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

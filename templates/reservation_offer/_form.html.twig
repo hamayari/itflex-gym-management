@@ -1,0 +1,56 @@
+
+{% block affichOffer %}
+<div>
+
+<div class="container">
+        
+        {{form_start(form,{'attr':{'novalidate':'novalidate'}})}}
+        
+        <div class="form-group">
+            {{ form_label(form.codepromo,"Code Promo") }}
+            {{ form_widget(form.codepromo,{ 'attr': {'class': 'form-control'} }) }} 
+            {% if form_errors(form.codepromo) is not empty %}
+            <div class="alert alert-danger" >
+            {{ form_errors(form.codepromo) }}
+        </div>
+        {% endif %}
+        </div>
+
+
+
+         <div class="form-group">
+            {{ form_label(form.iduser,"Votre nom") }}
+            {{ form_widget(form.iduser,{ 'attr': {'class': 'form-control'} }) }} 
+            {% if form_errors(form.iduser) is not empty %}
+            <div class="alert alert-danger" >
+            {{ form_errors(form.iduser) }}
+        </div>
+        {% endif %}
+        </div>
+
+          <br>
+         <div class="text-center">
+            {{ form_row(form.captcha) }}
+
+            {{ form_errors(form.captcha) }}
+        </div> 
+
+        <br>
+        
+
+
+{% for flashMessage in app.flashes('danger') %}
+        <div class="alert alert-danger">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+
+</div>
+</div>
+
+
+{% endblock %}

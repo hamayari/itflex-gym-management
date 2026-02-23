@@ -1,0 +1,49 @@
+{% extends 'basepdf.html.twig' %}
+{# calcul somme de reservations rester #}
+{% set s=offer.nb_max_reservation - offer.nb_reservation %}
+
+{% block body %}
+
+    <table class="table" border="2px">
+        <tbody>
+            
+            <tr>
+            <th style="color: #1b95b2">{{ 'Title offer'|trans|raw  }}</th>
+                <td>{{ offer.titleoffer }}</td>
+            </tr>
+            <tr>
+             <th style="color: #1b95b2">{{ 'Description offer'|trans|raw  }}</th>
+                <td>{{ offer.descriptionoffer }}</td>
+            </tr>
+            <tr>
+             <th style="color: #1b95b2">{{ 'Prix'|trans|raw  }}</th>
+                <td>{{ offer.prix }}</td>
+            </tr>
+            <tr>
+             <th style="color: #1b95b2">{{ 'Date debut offer'|trans|raw  }}</th>
+                <td>{{ offer.datedeboffer ? offer.datedeboffer|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+             <th style="color: #1b95b2">{{ 'Date fin offer'|trans|raw  }}</th>
+                <td>{{ offer.datefinoffer ? offer.datefinoffer|date('Y-m-d') : '' }}</td>
+            </tr>
+                         
+
+            <tr>
+            <th style="color: #1b95b2">{{ 'Nombre de reservation'|trans|raw  }}</th>
+                <td>{{ offer.nb_reservation}}</td>
+            </tr>
+
+            <tr>
+            <th style="color: #1b95b2">{{ 'Nombre disponible'|trans|raw  }}</th>
+                <td>{{ s }}</td>
+            </tr>
+               
+
+                                   
+        </tbody>
+    </table>
+
+
+{% endblock %}
+               

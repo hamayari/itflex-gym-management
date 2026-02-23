@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Commande PDF</title>
+    {% block stylesheets %}
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="{{ asset('BackOffice/css/styles.css') }}" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    {% endblock %}
+</head>
+<body>
+    <h1>Commande numéro {{ commande.id }}</h1>
+    <p>Date: {{ commande.date|date('Y-m-d') }}</p>
+    <p>Adresse: {{ commande.adresse }}</p>
+    <!-- Add other order information as needed -->
+
+    <h2>Produits</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Titre du Produit</th>
+                <th>Categorie</th>
+                <!-- Add other columns if necessary -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for commandeProduit in commande.getCommandeProduits() %}
+                <tr>
+                    <td>{{ commandeProduit.Produits.titre }}</td>
+                    <td>{{ commandeProduit.Produits.categorie }}</td>
+                    <!-- Adjust this line to display the correct properties of the Produit entity -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

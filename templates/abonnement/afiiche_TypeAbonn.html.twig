@@ -1,0 +1,40 @@
+{% extends "frontend/base.html.twig" %}
+
+{% block title %} Abonnement{% endblock %}
+{% block headerCard %}<h3 class="text-center font-weight-light my-4">Abonnement</h3>{% endblock %}
+
+{% block container %}
+
+
+
+            <div class="row">
+                {% for i in type_abonns %}
+                    <div class="col-lg-12">
+                        <ul class="features-items">
+                            <li class="feature-item d-flex align-items-center">
+                                <div class="left-icon">
+                                    <img src="{{asset('FrontOffice/images/features-first-icon.png')}}" alt="First One">
+                                </div>
+                                <div class="right-content">
+                                    <h4 style="color: #1b95b2">{{i.type}}</h4>
+                                    <p>{{i.description}}</p>
+                                      <td> <form action = "{{ path('app_abonnement_new', {'id': i.id} ) }}"> <button style="background-color: #1b95b2; color: white;">s'abonner</button></form></td> 
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+  
+{% endblock %}
+
+                   
+    
+    
+    
+
+
+                    
+
+
+

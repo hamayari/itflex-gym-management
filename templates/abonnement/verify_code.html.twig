@@ -1,0 +1,30 @@
+{% extends "frontend/base.html.twig" %}
+
+{% block title %}Verify Code{% endblock %}
+{% block headerCard %}<h3 class="text-center font-weight-light my-4">Verify Code</h3>{% endblock %}
+
+{% block container %}
+
+
+    {% for flashMessage in app.flashes('success') %}
+        <div class="alert alert-success">{{ flashMessage }}</div>
+    {% endfor %}
+
+    {% for flashMessage in app.flashes('error') %}
+        <div class="alert alert-danger">{{ flashMessage }}</div>
+    {% endfor %}
+
+    
+
+     <form method="post"> 
+        {# <form method="post" action="{{ path('verification_page', {'id': abonnement.idabonement}) }}"> #}
+        <label for="verification_code">Enter the verification code:</label>
+        <input type="text" id="verification_code" name="verification_code" required>
+        <button type="submit">Verify</button>
+    </form>
+<div>
+<br>
+     <a href="{{ path('affiche_TypeAbonn') }}">back to list</a>
+<br>
+</div>
+ {% endblock %} 

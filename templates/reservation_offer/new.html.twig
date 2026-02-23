@@ -1,0 +1,14 @@
+{% extends "frontend/base.html.twig" %}
+
+{% block title %}
+	ReservationOffer
+{% endblock %}
+{% block headerCard %}
+	<h3 class="text-center font-weight-light my-4">ReservationOffer</h3>
+{% endblock %}
+{% block container %}
+
+    {{ include('reservation_offer/_form.html.twig') }}
+
+    <a href="{{ path('app_reservation_offer_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,81 @@
+
+<div class="container">
+{{form_start(form,{'attr':{'novalidate':'novalidate'}})}}
+<div class="form-group">
+    {{ form_label(form.titleoffer,"Title") }}
+    {{ form_widget(form.titleoffer,{ 'attr': {'class': 'form-control'} }) }} 
+    {% if form_errors(form.titleoffer) is not empty %}
+    <div class="alert alert-danger" >
+    {{ form_errors(form.titleoffer) }}
+</div>
+{% endif %}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.descriptionoffer,"Description") }}
+    {{ form_widget(form.descriptionoffer,{ 'attr': {'class': 'form-control'} }) }} 
+    {% if form_errors(form.descriptionoffer) is not empty %}
+    <div class="alert alert-danger" >
+    {{ form_errors(form.descriptionoffer) }}
+</div>
+{% endif %}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.prix,"Prix") }}
+    {{ form_widget(form.prix,{ 'attr': {'class': 'form-control'} }) }} 
+    {% if form_errors(form.prix) is not empty %}
+    <div class="alert alert-danger" >
+    {{ form_errors(form.prix) }}
+</div>
+{% endif %}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.datedeboffer,"Date Debut") }}
+    {{ form_widget(form.datedeboffer,{ 'attr': {'class': 'form-control'} }) }} 
+    {% if form_errors(form.datedeboffer) is not empty %}
+    <div class="alert alert-danger" >
+    {{ form_errors(form.datedeboffer) }}
+</div>
+{% endif %}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.datefinoffer,"Date Fin") }}
+    {{ form_widget(form.datefinoffer,{ 'attr': {'class': 'form-control'} }) }} 
+    {% if form_errors(form.datefinoffer) is not empty %}
+    <div class="alert alert-danger" >
+    {{ form_errors(form.datefinoffer) }}
+</div>
+{% endif %}
+</div>
+
+{# <div class="form-group">
+    {{ form_label(form.img,"Image") }}
+    {{ form_widget(form.img,{ 'attr': {'class': 'form-control'} }) }} 
+    {% if form_errors(form.img) is not empty %}
+    <div class="alert alert-danger" >
+    {{ form_errors(form.img) }}
+</div>
+{% endif %}
+</div> #}
+
+</div>
+<div class="form-group">
+
+    <label>File upload</label>
+    {# <input type="file" name="img[]" class="file-upload-default"> #}
+     {# <div class="input-group col-xs-12">
+       <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image" 
+        {{form_widget(form.imageFile)}} 
+
+    </div>#}
+</div>
+
+
+  
+<br>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+</div>

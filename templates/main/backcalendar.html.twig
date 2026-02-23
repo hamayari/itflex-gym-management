@@ -1,0 +1,75 @@
+{#  {% extends 'calander.html.twig' %}#}
+{% extends '/backend/base.html.twig' %}
+
+{% block stylesheets%}
+    <style>
+        #calendrier{
+            width: 80%;
+            margin: auto ;
+        }
+    </style>
+
+{% endblock %}
+
+{% block title %}Planing{% endblock %}
+{% block body %}
+    <div id="calendrier">
+    </div>
+    <script>
+        window.onload = () => {
+            let calendarElt = document.querySelector("#calendrier")
+
+            let calendar = new FullCalendar.Calendar(calendarElt, {
+                initialView: 'timeGridWeek',
+                locale: 'fr',
+                timeZone: 'Europe/Paris',
+                headerToolbar: {
+                    start: 'prev,next today',
+                    center: 'title',
+                    end: 'dayGridDay,timeGridWeek'
+
+                },
+
+                nowIndicator: true,
+                events: {{ data|raw }},
+                allDaySlot: false,
+                slotMinTime: '07:00:00', // Adjust the start time
+                slotMaxTime: '23:00:00', // Adjust the end time
+                firstDay: 1,
+                editable : true,
+
+            })
+            calendar.render()
+        }
+    </script>
+{% endblock %}
+{#
+{% block javascripts %}
+    <script>
+        window.onload = () => {
+            let calendarElt = document.querySelector("#calendrier")
+
+            let calendar = new FullCalendar.Calendar(calendarElt, {
+                initialView: 'timeGridWeek',
+                locale: 'fr',
+                timeZone: 'Europe/Paris',
+                headerToolbar: {
+                    start: 'prev,next today',
+                    center: 'title',
+                    end: 'dayGridDay,timeGridWeek'
+                },
+
+                nowIndicator: true,
+                events: {{ data|raw }},
+                allDaySlot: false,
+                slotMinTime: '07:00:00', // Adjust the start time
+                slotMaxTime: '23:00:00', // Adjust the end time
+                firstDay: 1,
+
+            })
+            calendar.render()
+        }
+    </script>
+
+{% endblock %}
+#}

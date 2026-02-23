@@ -1,0 +1,29 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Modifier la catégorie{% endblock %}
+{% block page_title %}Gestion des Catégories{% endblock %}
+{% block breadcrumb %}
+    <a href="{{ path('app_categorie_index') }}" class="breadcrumb-item">Catégories</a>
+    <li class="breadcrumb-item active">Modifier</li>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-success text-white">
+                <h6 class="m-0 font-weight-bold">
+                    <i class="fas fa-folder-open me-2"></i>Modifier la catégorie
+                </h6>
+            </div>
+            <div class="card-body">
+                {{ include('categorie/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+    {{ include('categorie/_delete_form.html.twig') }}
+    </center>
+{% endblock %}

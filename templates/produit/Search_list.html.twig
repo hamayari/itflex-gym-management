@@ -1,0 +1,40 @@
+<!-- _search_results.html.twig -->
+{% if produits is defined %}
+        <table class="table table-bordered table-striped mx-auto">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Titre</th>
+                <th scope="col">Image</th>
+                <th scope="col">Date</th>
+                <th scope="col">Description</th>
+                <th scope="col">Categorie</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for produit in produits %}
+                <tr>
+                    <td>{{ produit.titre }}</td>
+                    <td>
+                        {% if produit.image %}
+                            <img src="{{ asset('uploads/images/' ~ produit.image) }}" alt="{{ produit.titre }}" style="max-width: 70px; max-height: 70px;">
+                        {% else %}
+                            No Image
+                        {% endif %}
+                    </td>
+                    <td>{{ produit.date ? produit.date|date('Y-m-d') : '' }}</td>
+                    <td>{{ produit.description }}</td>
+                    <td>{{ produit.categorie }}</td>
+                    <td>
+                        <a href="{{ path('app_produit_show', {'id': produit.id}) }}" class="btn btn-info btn-sm">Show</a>
+                        <a href="{{ path('app_produit_edit', {'id': produit.id}) }}" class="btn btn-warning btn-sm">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8" class="text-center">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+{% endif %}

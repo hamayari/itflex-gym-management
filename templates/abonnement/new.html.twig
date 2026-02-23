@@ -1,0 +1,22 @@
+{% extends "frontend/base.html.twig" %}
+
+{% block title %}Nouvel abonnement - FitPro Manager{% endblock %}
+{% block headerCard %}<h3 class="text-center font-weight-light my-4"><i class="fas fa-plus-circle me-2"></i>Nouvel abonnement</h3>{% endblock %}
+
+{% block container %}
+    <div class="card shadow-sm">
+        <div class="card-header bg-success text-white">
+            <i class="fas fa-id-card me-2"></i>Formulaire d'abonnement
+        </div>
+        <div class="card-body">
+            {{ include('abonnement/_form.html.twig') }}
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <a href="{{ path('affiche_TypeAbonn') }}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+        </a>
+    </div>
+{% endblock %}
+

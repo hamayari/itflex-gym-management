@@ -1,0 +1,39 @@
+{% for type_abonn in results %}
+    <tr>
+        <td>{{ type_abonn.type }}</td>
+        <td>{{ type_abonn.description }}</td>
+        <td>{{ type_abonn.getnb_abonnement() }}</td>
+        <td>
+            <a href="{{ path('app_type_abonn_show', {'id': type_abonn.id}) }}">show</a>
+            <a href="{{ path('app_type_abonn_edit', {'id': type_abonn.id}) }}">edit</a>
+        </td>
+    </tr>
+{% else %}
+    {% for type_abonn in results2 %}
+        <tr>
+            <td>{{ type_abonn.type }}</td>
+            <td>{{ type_abonn.description }}</td>
+            <td>{{ type_abonn.getnb_abonnement() }}</td>
+            <td>
+                <a href="{{ path('app_type_abonn_show', {'id': type_abonn.id}) }}">show</a>
+                <a href="{{ path('app_type_abonn_edit', {'id': type_abonn.id}) }}">edit</a>
+            </td>
+        </tr>
+    {% else %}
+        {% for type_abonn in results3 %}
+            <tr>
+                <td>{{ type_abonn.type }}</td>
+                <td>{{ type_abonn.description }}</td>
+                <td>{{ type_abonn.getnb_abonnement() }}</td>
+                <td>
+                    <a href="{{ path('app_type_abonn_show', {'id': type_abonn.id}) }}">show</a>
+                    <a href="{{ path('app_type_abonn_edit', {'id': type_abonn.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+{% endfor %}

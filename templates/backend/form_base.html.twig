@@ -1,0 +1,31 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block page_title %}{% block form_title %}Formulaire{% endblock %}{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <i class="{% block form_icon %}fas fa-edit{% endblock %} me-2"></i>
+                    {% block form_header %}Formulaire{% endblock %}
+                </h6>
+            </div>
+            <div class="card-body">
+                {% block form_content %}
+                    {# Le contenu du formulaire sera inséré ici #}
+                {% endblock %}
+            </div>
+            <div class="card-footer bg-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="{% block back_url %}#{% endblock %}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+                    </a>
+                    {% block form_actions %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

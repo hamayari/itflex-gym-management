@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "chartjs-node-canvas": "^4.1.6",
+    "puppeteer": "^21.5.2"
+
+  }
+}

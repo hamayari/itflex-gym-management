@@ -1,0 +1,77 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Nouveau utilisateur{% endblock %}
+{% block page_title %}Gestion des Utilisateurs{% endblock %}
+{% block breadcrumb %}
+    <a href="{{ path('app_user_index') }}" class="breadcrumb-item">Utilisateurs</a>
+    <li class="breadcrumb-item active">Nouveau</li>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-10 offset-lg-1">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-primary text-white">
+                <h6 class="m-0 font-weight-bold">
+                    <i class="fas fa-user-plus me-2"></i>Créer un nouveau utilisateur
+                </h6>
+            </div>
+            <div class="card-body">
+                {% form_theme form 'backend/form_theme.html.twig' %}
+                
+                {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'needs-validation'}}) }}
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.nom) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.prenom) }}
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.email) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.mdp) }}
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        {{ form_row(form.age) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_row(form.sex) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_row(form.numtel) }}
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(form.role) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(form.img) }}
+                    </div>
+                </div>
+                
+                <div class="mt-4 d-flex justify-content-between">
+                    <a href="{{ path('app_user_index') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-2"></i>Enregistrer
+                    </button>
+                </div>
+                
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

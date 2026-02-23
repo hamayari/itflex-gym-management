@@ -1,0 +1,139 @@
+<div class="container" >
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+
+
+<table border="1">
+
+<tr>
+<div class="col-md-6 col-sm-12">
+    <div class="form-group card-label">
+<td>
+    {{ form_label(form.NomEquipement, "Nom d'equipement")  }}
+    </td>
+    <td>
+    {{ form_widget(form.NomEquipement,({'class':'form-control'})) }}
+    </td>
+    </div>
+    <td>
+    {% if form_errors(form.NomEquipement) is not empty %}
+    <div class="alert alert-danger"
+    {{ form_errors(form.NomEquipement) }}
+    </td>
+    </div>
+    {% endif %}
+    </div>
+</tr>
+
+
+<tr>
+    <div class="col-md-6 col-sm-12">
+    <div class="form-group card-label">
+    <td>
+    {{ form_label(form.Quantite, "la quantité")  }}
+    </td>
+    <td>
+    {{ form_widget(form.Quantite,({'class':'form-control'})) }}
+    </td>
+    </div>
+    <td>
+    {% if form_errors(form.Quantite) is not empty %}
+    <div class="alert alert-danger"
+    {{ form_errors(form.Quantite) }}
+    </td>
+    </div>
+    {% endif %}
+    </div>
+</tr>
+    
+<tr>
+    <div class="col-md-6 col-sm-12">
+    <div class="form-group card-label">
+     <td>
+    {{ form_label(form.DateAchat, "Date d'achat")  }}
+     </td>
+      <td>
+    {{ form_widget(form.DateAchat,({'class':'form-control'})) }}
+     </td>
+    </div>
+     <td>
+    {% if form_errors(form.DateAchat) is not empty %}
+    <div class="alert alert-danger"
+    {{ form_errors(form.DateAchat) }}
+     </td>
+    </div>
+    {% endif %}
+    </div>
+    </tr>
+    
+<tr>
+    <div class="col-md-6 col-sm-12">
+    <div class="form-group card-label">
+     <td>
+    {{ form_label(form.PrixAchat, "Prix d'achat")  }}
+     </td>
+      <td>
+    {{ form_widget(form.PrixAchat,({'class':'form-control'})) }}
+     </td>
+    </div>
+     <td>
+    {% if form_errors(form.PrixAchat) is not empty %}
+    <div class="alert alert-danger"
+    {{ form_errors(form.PrixAchat) }}
+     </td>
+    </div>
+    {% endif %}
+    </div>
+    </tr>
+   
+<tr>
+    <div class="col-md-6 col-sm-12">
+    <div class="form-group card-label">
+     <td>
+    {{ form_label(form.IdCategorie, "Nom categorie")  }}
+     </td>
+      <td>
+    {{ form_widget(form.IdCategorie,({'class':'form-control'})) }}
+     </td>
+    </div>
+     <td>
+    {% if form_errors(form.IdCategorie) is not empty %}
+    <div class="alert alert-danger"
+    {{ form_errors(form.IdCategorie) }}
+     </td>
+    </div>
+    {% endif %}
+    </div>
+</tr>
+
+<tr>
+    <div class="col-md-6 col-sm-12">
+    <div class="form-group card-label">
+     <td>
+    {{ form_label(form.idUser, "User")  }}
+     </td>
+      <td>
+    {{ form_widget(form.idUser,({'class':'form-control'})) }}
+     </td>
+    </div>
+     <td>
+    {% if form_errors(form.idUser) is not empty %}
+    <div class="alert alert-danger"
+    {{ form_errors(form.idUser) }}
+     </td>
+    </div>
+    {% endif %}
+    </div>
+</tr>
+    
+
+
+
+
+</table>
+<button class="btn btn-primary submit-btn"> 
+     {{ button_label|default('Save') }}
+    </button>
+
+{{ form_end(form) }}
+</div>
+

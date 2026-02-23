@@ -1,0 +1,53 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Détails de la catégorie{% endblock %}
+{% block page_title %}Gestion des Catégories{% endblock %}
+{% block breadcrumb %}
+    <a href="{{ path('app_categorie_index') }}" class="breadcrumb-item">Catégories</a>
+    <li class="breadcrumb-item active">Détails</li>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-info text-white">
+                <h6 class="m-0 font-weight-bold">
+                    <i class="fas fa-folder me-2"></i>{{ categorie.NomCategorie }}
+                </h6>
+            </div>
+            <div class="card-body">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <th width="30%"><i class="fas fa-hashtag text-primary me-2"></i>ID</th>
+                            <td>{{ categorie.IdCategorie }}</td>
+                        </tr>
+                        <tr>
+                            <th><i class="fas fa-tag text-primary me-2"></i>Nom</th>
+                            <td><strong>{{ categorie.NomCategorie }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th><i class="fas fa-align-left text-primary me-2"></i>Description</th>
+                            <td>{{ categorie.DescriptionCategorie }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer bg-white">
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('app_categorie_index') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+                    </a>
+                    <div class="d-flex gap-2">
+                        <a href="{{ path('app_categorie_edit', {'IdCategorie': categorie.IdCategorie}) }}" class="btn btn-success">
+                            <i class="fas fa-edit me-2"></i>Modifier
+                        </a>
+                        {{ include('categorie/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

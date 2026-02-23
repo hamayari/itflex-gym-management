@@ -1,0 +1,54 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Catégories d'activités - FitPro Manager{% endblock %}
+
+{% block page_title %}
+    <h1 class="mt-4"><i class="fas fa-folder me-2"></i>Catégories d'activités</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ path('app_user_index') }}">Tableau de bord</a></li>
+        <li class="breadcrumb-item active">Catégories d'activités</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+            <i class="fas fa-list me-2"></i>Liste des catégories
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th><i class="fas fa-tag me-1"></i>Catégorie</th>
+                            <th class="text-center"><i class="fas fa-cog me-1"></i>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for categorieactivite in categorieactivites %}
+                        <tr>
+                            <td><strong>{{ categorieactivite.categorie }}</strong></td>
+                            <td class="text-center">
+                                {{ include('categorieactivite/_delete_form.html.twig') }}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="2" class="text-center text-muted py-4">
+                                <i class="fas fa-inbox fa-2x mb-2"></i>
+                                <p>Aucune catégorie trouvée</p>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-3">
+                <a href="{{ path('app_categorieactivite_new') }}" class="btn btn-success">
+                    <i class="fas fa-plus me-2"></i>Nouvelle catégorie
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

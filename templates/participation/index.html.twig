@@ -1,0 +1,64 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Mes réservations - FitPro Manager{% endblock %}
+{% block headerCard %}<h3 class="text-center font-weight-light my-4"><i class="fas fa-calendar-check me-2"></i>Mes réservations</h3>{% endblock %}
+
+{% block container %}
+    {% block table %}
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th><i class="fas fa-user me-1"></i>Nom</th>
+                                <th><i class="fas fa-user me-1"></i>Prénom</th>
+                                <th><i class="fas fa-phone me-1"></i>Téléphone</th>
+                                <th><i class="fas fa-calendar me-1"></i>Date</th>
+                                <th class="text-center"><i class="fas fa-cog me-1"></i>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for participation in participations %}
+                            <tr>
+                                <td><strong>{{ participation.nom }}</strong></td>
+                                <td>{{ participation.prenom }}</td>
+                                <td><i class="fas fa-phone-alt me-1 text-muted"></i>{{ participation.ntel }}</td>
+                                <td>
+                                    {% if participation.datepart %}
+                                        <i class="fas fa-clock me-1 text-muted"></i>
+                                        {{ participation.datepart|date('d/m/Y H:i') }}
+                                    {% else %}
+                                        <span class="text-muted">Non définie</span>
+                                    {% endif %}
+                                </td>
+                                <td class="text-center">
+                                    <a href="{{ path('app_participation_show', {'idpart': participation.idpart}) }}" class="btn btn-sm btn-info" title="Voir">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-4">
+                                    <i class="fas fa-inbox fa-2x mb-2"></i>
+                                    <p>Aucune réservation trouvée</p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-3 d-flex gap-2">
+                    <a href="{{ path('app_participation_new') }}" class="btn btn-success">
+                        <i class="fas fa-plus me-2"></i>Nouvelle réservation
+                    </a>
+                    <a href="{{ path('app_event_indexf') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Retour aux événements
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

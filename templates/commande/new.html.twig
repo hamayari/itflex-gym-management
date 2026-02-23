@@ -1,0 +1,33 @@
+{% extends 'backend/base.html.twig' %}
+
+{% block title %}Nouvelle commande - FitPro Manager{% endblock %}
+
+{% block page_title %}
+    <h1 class="mt-4"><i class="fas fa-plus-circle me-2"></i>Nouvelle commande</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ path('app_user_index') }}">Tableau de bord</a></li>
+        <li class="breadcrumb-item"><a href="{{ path('app_commande_index') }}">Commandes</a></li>
+        <li class="breadcrumb-item active">Nouvelle commande</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <i class="fas fa-shopping-cart me-2"></i>Formulaire de commande
+                </div>
+                <div class="card-body">
+                    {{ include('commande/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+                </div>
+            </div>
+            
+            <div class="mt-3">
+                <a href="{{ path('app_commande_index') }}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

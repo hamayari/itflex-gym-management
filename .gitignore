@@ -19,8 +19,12 @@
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 
-###> Documentation files (exclude ALL .md files) ###
+###> Documentation files (exclude most .md files except essential ones) ###
 *.md
+!README.md
+!LICENSE
+!CONTRIBUTING.md
+!CHANGELOG.md
 ###< Documentation files ###
 
 ###> IDE ###
